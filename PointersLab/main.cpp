@@ -7,10 +7,35 @@
 //
 
 #include <iostream>
+#include "string"
+
 using namespace std;
 
 void passByValue(int);
 void passByRef(int &num1);
+
+
+class Person{
+    string name;
+    int age, height, weight;
+public:
+    Person(string nam, int a, int h, int w){
+        name = nam;
+        age = a;
+        height = h;
+        weight = w;
+    }
+    
+    void setName(string nam){
+        name = nam;
+    }
+    
+    void speak(){
+        cout<<"Name "<<name<<", Age: "<<age<<", Height(in): "<<height<<", Weight: "<<weight<<endl;
+    }
+};
+
+void ModifyPerson(Person p);
 
 int main(int argc, const char * argv[]) {
     // insert code here...
@@ -28,6 +53,11 @@ int main(int argc, const char * argv[]) {
     cout<<"InMain"<<endl;
     cout<<*pNum<<endl;
     
+    Person p("Bob", 42, 68, 195);
+    p.speak();
+    ModifyPerson(p);
+    p.speak();
+    
     
     return 0;
 }
@@ -42,4 +72,8 @@ void passByRef(int &num1){
     cout<<"In Pass By Ref"<<endl;
     num1=50;
     cout<<num1<<endl;
+}
+
+void ModifyPerson(Person p){
+    p.setName("changed name");
 }
