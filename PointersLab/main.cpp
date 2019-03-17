@@ -35,7 +35,7 @@ public:
     }
 };
 
-void ModifyPerson(Person p);
+void ModifyPerson(Person &p);
 
 int main(int argc, const char * argv[]) {
     // insert code here...
@@ -74,6 +74,6 @@ void passByRef(int &num1){
     cout<<num1<<endl;
 }
 
-void ModifyPerson(Person p){
+void ModifyPerson(Person &p){
     p.setName("changed name");
 }
